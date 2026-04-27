@@ -1,0 +1,21 @@
+import type { ClassValue } from 'clsx'
+import { clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+export const CATEGORIES = ['Cars', 'Phones', 'Computers', 'Bikes']
+
+export const slugify = (value: string) => {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '')
+}
+
+export const formatCategoryId = (category: string) => {
+  return slugify(category)
+}
